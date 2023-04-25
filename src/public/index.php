@@ -57,16 +57,16 @@ $container->set(
                 'username' => 'root',
                 'password' => 'secret',
                 'dbname'   => 'mydb',
-                ]
-            );
-        }
-    );
-    
+            ]
+        );
+    }
+);
+
 $container->set(
     'mongo',
     function () {
         $mongo = new MongoClient();
-        
+
         return $mongo->selectDB('phalt');
     },
     true
@@ -74,7 +74,7 @@ $container->set(
 
 $container->set(
     'session',
-    function(){
+    function () {
         $session = new Manager();
         $files = new Stream(
             [

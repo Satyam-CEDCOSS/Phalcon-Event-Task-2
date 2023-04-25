@@ -12,7 +12,7 @@ class ProductController extends Controller
         $query = $this->modelsManager->createQuery($sql);
         $cars = $query->execute();
         $this->view->display="";
-        foreach ($cars as $key => $value) {
+        foreach ($cars as $value) {
             $this->view->display .= "<tr>
             <td>".$value->name."</td><td>".$value->description."</td>
             <td>".$value->tags."</td><td>".$value->price."</td>

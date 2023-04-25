@@ -12,7 +12,7 @@ class OrderController extends Controller
         $query = $this->modelsManager->createQuery($sql);
         $cars = $query->execute();
         $this->view->display = "";
-        foreach ($cars as $key => $value) {
+        foreach ($cars as $value) {
             $this->view->display .= "<tr>
             <td>".$value->name."</td><td>".$value->address."</td>
             <td>".$value->zipcode."</td><td>".$value->product."</td>
