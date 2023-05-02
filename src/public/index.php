@@ -26,6 +26,12 @@ $loader->registerDirs(
     ]
 );
 
+$loader->registerNamespaces(
+    [
+        'MyApp\Listener'=>APP_PATH .'/handlers/'
+    ]
+);
+
 $loader->register();
 
 $container = new FactoryDefault();

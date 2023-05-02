@@ -9,4 +9,10 @@ class SettingController extends Controller
     {
         // Redirect to View
     }
+
+    public function addAction()
+    {
+        $this->session->set('setting', $_POST);
+        $this->response->redirect('setting');
+    }
 }

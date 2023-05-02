@@ -1,7 +1,9 @@
 <?php
 
 use Phalcon\Mvc\Controller;
-
+use MyApp\Listener\Listener;
+use MyApp\Listener\Aware;
+use Phalcon\Events\Manager as EventsManager;
 
 class OrderController extends Controller
 {
@@ -25,7 +27,15 @@ class OrderController extends Controller
     }
     public function addAction()
     {
-        // Redirect to View
+        $eventsManager = new EventsManager();
+        $connection = new Aware();
+        $connection->setEventsManager($eventsManager);
+        $eventsManager->attach(
+            'checks',
+            new Listener()
+        );
+        $connection->process();
+
         $order = new Orders();
 
         $order->assign(
